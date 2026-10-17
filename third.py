@@ -6,8 +6,8 @@ def je_prvocislo(cislo):
         return False
 
     
-    for i in range(2, int(cislo**0.5) + 1):
-        if cislo % i == 0:
+    for x in range(2, int(cislo**0.5) + 1):
+        if cislo % x == 0:
             return False
 
     return True
@@ -18,9 +18,9 @@ def vrat_prvocisla(maximum):
     prvocisla = []
 
 
-    for i in range(2, maximum + 1):
-        if je_prvocislo(i):
-            prvocisla.append(i)
+    for x in range(2, maximum + 1):
+        if je_prvocislo(x):
+            prvocisla.append(x)
    
     return prvocisla
 
