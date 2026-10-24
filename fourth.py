@@ -26,11 +26,11 @@ def je_tah_mozny(figurka, cilova_pozice, obsazene_pozice):
     
     # 3. KROK: Pohyb podle typu figury
     if typ == "král":
-        if (radek2<= 1 and sloupec2<=1) and (radek2> 0 or sloupec2> 0):
+        if (radek2 <= 1 and sloupec2 <= 1) and (radek2 > 0 or sloupec2 > 0):
             return True
 
     elif typ == "jezdec":
-        if (radek2 == 1 and sloupec2 ==2) or (radek2 == 2 and sloupec2 ==1):
+        if (radek2 == 1 and sloupec2 == 2)or (radek2 == 2 and sloupec2 == 1):
             return True
         # Král se může pohnout maximálně o 1 pole v jakémkoliv směru.
         # Nápověda: rozdíl řádků a sloupců (absolutní hodnota abs()) musí být <= 1.
