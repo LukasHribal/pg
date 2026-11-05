@@ -22,29 +22,18 @@ def get_model_names(prefix):
 
 
 def download_rates():
-   
-   r = requests.get(url2)
-   if r.status_code != 200:
-        return ()
-   data= r.text
-   lines = data.splitlines()[2:]
-   vysledek = {}
-   for line in lines:
-       hodnoty = line.split("!")
-       print (hodnoty)
-       vysledek[hodnoty[3]]) hodnoty[4].replace(",", ".")  #nah its just fucked kek
-   return vysledek
+    r = requests.get(url2)
+    if r.status_code != 200:
+        return {}
+    data = r.text
+    lines = data.splitlines()[2:]
+    vysledek = {}
+    for line in lines:
+        hodnoty = line.split("|")
+        vysledek[hodnoty[3]] = float(hodnoty[4].replace(",", ".")) / int(hodnoty[2])
+    return vysledek
     
        
-
-
-
-
-
-
-
-
-
 
 if __name__ =="__main__":
     #sponce = requests.get(url1)
@@ -60,5 +49,5 @@ if __name__ =="__main__":
 #
  #      prefix = sys.argv[1]
   #     models = get_model_names(prefix)
-  #     for model in models:
-  #         print(model)
+  #   #     for model in models:
+ #         print(model)
