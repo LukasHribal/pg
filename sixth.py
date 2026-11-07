@@ -11,21 +11,25 @@ def download_url_and_get_all_hrefs(url):
     <a href="url">odkaz</a> a z nich nactete url, ktere vratite jako seznam pomoci return
     """
     r = requests.get(url)
-    if r.status_code == 200:
+    if r.status_code != 200:
+        return []
+    
+    else:
+
         content = r.text
         hrefs = []
         start = 0
         
         while True:
             link = content.find('<a href="', start)
-            if link == -1:
+            if link ==-1:
                 break
 
             zacatek_url = link+ len('<a href="')
             konec_url = content.find('"', zacatek_url)
 
 
-            if zacatek_url == -1 or konec_url == -1:
+            if zacatek_url == -1 or konec_url==-1:
                 break
 
             href = content[zacatek_url:konec_url]
