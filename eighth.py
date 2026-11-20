@@ -3,7 +3,14 @@ def bin_to_dec(binarni_cislo):
     # 111 -> 7
     # "101" -> 5
 
-    return int(str(binarni_cislo), 2)
+    binarni_str = str(binarni_cislo)
+    vysledek = 0
+
+    for cislo in binarni_str:
+        if cislo not in ("0", "1"):
+            raise ValueError(f"nelze pouzit '{cislo}'")
+        vysledek = vysledek * 2 + int(cislo)
+    return vysledek
 
 
 def test_bin_to_dec():
